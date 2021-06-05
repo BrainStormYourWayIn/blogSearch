@@ -27,7 +27,7 @@ __________________
 
 ## 2. Start the built-in server
 
-To start the server, type:
+To start the server, run:
 
 `streamlit run test2.py`
 
