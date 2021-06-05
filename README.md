@@ -45,8 +45,4 @@ __________________
 
 ## Note for Users
 
-We will be adding a file called test_streamlit.py, which the users can modify, if they want to contribute to the project. Due to issues with page redirection, this 
-
-will be updated as part of a later release. Users, however, can freely modify this if they want to contribute to the project. Issues will be prioritized for main.py
-
-in the current status.
+We will be adding a file called test_streamlit.py, which the users can modify, if they want to contribute to the project. Due to issues with page redirection, this will be updated as part of a later release. Users, however, can freely modify this if they want to contribute to the project. Issues will be prioritized for main.py in the current status.
