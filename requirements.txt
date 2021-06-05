@@ -2,3 +2,4 @@ urllib3
 streamlit
 bs4
 googleapiclient
+webbrowser
