@@ -1,0 +1,51 @@
+body {
+    background-color: #211f1f;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+img {
+    margin-left: 30%;
+    max-width: 40%;
+    max-height: 10%;
+}
+
+pageno {
+    color: burlywood;
+    font-size: 15px;
+    font-family: 'PT Serif', serif;
+}
+
+maintitle {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Prompt', sans-serif;
+}
+
+link {
+    color: chocolate;
+    font-size: 10px;
+    font-family: 'Prompt', sans-serif;
+}
+
+description {
+    color: rgba(245, 245, 245, 0.726);
+    font-size: 15px;
+    font-family: 'Prompt', sans-serif;
+}
+
+a {
+    color: chocolate;
+    font-family: 'Righteous', cursive;
+}
+
+result {
+    color: aqua;
+    font-family: 'PT Serif', serif;
+}
+
+searchresult {
+    color:rgba(0, 217, 255, 0.493);
+    font-size: 30px;
+    font-family: 'Cuprum', sans-serif;
+}
