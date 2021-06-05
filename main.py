@@ -233,5 +233,6 @@ def check_if_digit(input_str):
 input_str = input("Type 's' to search again or 'p' to go to a different page or 'e' to end the session: ")
 check_if_digit(input_str)
 
-
+import webbrowser 
+webbrowser.open_new_tab('myOutFile.html')
     
