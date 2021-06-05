@@ -10,7 +10,16 @@ __________________
 
 Once you have downloaded the package and unzipped it in a directory, open a console window, go to the directory and run:
 
+`pip freeze > requirements.txt`
+
+This should create the requirements.txt file in the correct format. Then try installing using the command.
+
 `pip install -r requirements.txt`
+
+Make sure you're in the same folder as the file when running this command.
+If you get some path name instead of the version number in the requirements.txt file, use this pip command to work around it.
+
+`pip list --format=freeze > requirements.txt`
 
 This will install the requirements in the Python distribution.
 
