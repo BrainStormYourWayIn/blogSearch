@@ -25,13 +25,19 @@ This will install the requirements in the Python distribution.
 
 __________________
 
-## 2. Start the built-in server
+## 2. Run main.py to start the Blog Search Engine
 
-To start the server, run:
+__________________
 
-`streamlit run test2.py`
+## Optional use
 
-This will execute the program.
+Start the built-in server
+
+To start the server, type:
+
+`streamlit run test_streamlit.py`
+
+This will execute the program on Streamlit.
 
 **Note:** Initial search runtime on startup may take ~30 secs depending on the machine.
 
@@ -39,4 +45,8 @@ __________________
 
 ## Note for Users
 
-We will be adding a file called test_streamlit.py, which the users can modify, if they want to contribute to the project.
+We will be adding a file called test_streamlit.py, which the users can modify, if they want to contribute to the project. Due to issues with page redirection, this 
+
+will be updated as part of a later release. Users, however, can freely modify this if they want to contribute to the project. Issues will be prioritized for main.py
+
+in the current status.
