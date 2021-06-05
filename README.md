@@ -1,6 +1,7 @@
 # blogSearch
 
-![logo](https://github.com/BrainStormYourWayIn/ddg_project/blob/main/blogSearch-removebg-preview.png)
+![logo](https://github.com/BrainStormYourWayIn/blogSearch/blob/main/blogSearch-removebg-preview.png)
+
 A web-based blog searcher.
 
 __________________
