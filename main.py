@@ -79,10 +79,9 @@ for result in results:
             f.write("<br>\n")
             f.write("<description>" + for_des + result.get('snippet') + "</description>")
             f.write("</p>\n")
-        #with open("myOutFile.html", "w") as outF:
-            #outF.write(for_title + result.get('title'))
-    else:
-        pass
+            #with open("myOutFile.html", "w") as outF:
+                #outF.write(for_title + result.get('title'))
+    else: pass
 
 with open('myOutFile.html', 'a') as f:
     f.write("</body>\n")
@@ -129,25 +128,25 @@ def check_if_digit(input_str):
         for result in results:
             omitSocials = ['instagram', 'twitter', 'facebook', 'amazon', 'linkedin', 'youtube', 'vimeo', 'google', 'pinterest']
             blog_str = ['blog']
-    #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
-                   #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
-                   #'https://www.youtu', 'https://play.google', 'https://support.goog']
+        #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
+                       #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
+                       #'https://www.youtu', 'https://play.google', 'https://support.goog']
             urls = str(result.get('link'))
-    #snippo = result.get('snippet')
+            #snippo = result.get('snippet')
             keyStr = "blog"
             for_link = "URL: "
             for_title = "Title: "
             for_des = "Description: "
-    #url = result.get('link')
-    #For getting only socials: if any(social in urls for social in omitSocials):
-    #if all(social not in urls for social in omitSocials):   
+            #url = result.get('link')
+            #For getting only socials: if any(social in urls for social in omitSocials):
+            #if all(social not in urls for social in omitSocials):   
     
-    #if all(social not in urls for social in omitSocials) or keyStr in urls
+            #if all(social not in urls for social in omitSocials) or keyStr in urls
             if all(social not in urls for social in omitSocials):
                 with open("myOutFile.html", "a+") as f:
             
-            #f.write("<html>\n")
-            #f.write("<title>blogSearch | Search Results</title>\n")
+                    #f.write("<html>\n")
+                    #f.write("<title>blogSearch | Search Results</title>\n")
                     f.write("<p><result>========== Result ==========</result>\n")
                     f.write("<br>\n")
                     f.write("<maintitle>" + result.get('title') + "</maintitle><br>" + '\n')
@@ -156,14 +155,14 @@ def check_if_digit(input_str):
                     f.write("<br>\n")
                     f.write("<description>" + for_des + result.get('snippet') + "</description>" + '\n\n')
                     f.write("</p>\n")
-        #with open("myOutFile.html", "w") as outF:
-            #outF.write(for_title + result.get('title'))
-            else:
-                pass
+                #with open("myOutFile.html", "w") as outF:
+                    #outF.write(for_title + result.get('title'))
+            else: pass
 
         with open('myOutFile.html', 'a') as f:
             f.write("</body>\n")
             f.write("</html>\n")
+            
     elif input_str == 's':
             input_str = input("Enter a search term: ")
             searchterm = input_str + " blog"
@@ -192,25 +191,25 @@ def check_if_digit(input_str):
             for result in results:
                 omitSocials = ['instagram', 'twitter', 'facebook', 'amazon', 'linkedin', 'youtube', 'vimeo', 'google', 'pinterest']
                 blog_str = ['blog']
-    #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
-                   #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
-                   #'https://www.youtu', 'https://play.google', 'https://support.goog']
+        #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
+                       #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
+                       #'https://www.youtu', 'https://play.google', 'https://support.goog']
                 urls = str(result.get('link'))
-    #snippo = result.get('snippet')
+                #snippo = result.get('snippet')
                 keyStr = "blog"
                 for_link = "URL: "
                 for_title = "Title: "
                 for_des = "Description: "
-    #url = result.get('link')
-    #For getting only socials: if any(social in urls for social in omitSocials):
-    #if all(social not in urls for social in omitSocials):   
+                #url = result.get('link')
+                #For getting only socials: if any(social in urls for social in omitSocials):
+                #if all(social not in urls for social in omitSocials):   
     
-    #if all(social not in urls for social in omitSocials) or keyStr in urls
+                #if all(social not in urls for social in omitSocials) or keyStr in urls
                 if all(social not in urls for social in omitSocials):
                     with open("myOutFile.html", "a+") as f:
             
-            #f.write("<html>\n")
-            #f.write("<title>blogSearch | Search Results</title>\n")
+                        #f.write("<html>\n")
+                        #f.write("<title>blogSearch | Search Results</title>\n")
                         f.write("<p><result>========== Result ==========</result>\n")
                         f.write("<br>\n")
                         f.write("<maintitle>" + result.get('title') + "</maintitle><br>" + '\n')
@@ -219,10 +218,9 @@ def check_if_digit(input_str):
                         f.write("<br>\n")
                         f.write("<description>" + for_des + result.get('snippet') + "</description>" + '\n\n')
                         f.write("</p>\n")
-        #with open("myOutFile.html", "w") as outF:
-            #outF.write(for_title + result.get('title'))
-            else:
-                   pass
+                    #with open("myOutFile.html", "w") as outF:
+                        #outF.write(for_title + result.get('title'))
+            else: pass
 
             with open('myOutFile.html', 'a') as f:
                 f.write("</body>\n")
