@@ -26,26 +26,29 @@ searchterm = searchinput + " blog"
 
 results = google_search(searchterm, my_api_key, my_cse_id, num=10, start=nextPage)
 
+def text(input_str, page=page):
+    return f"""<!DOCTYPE html>
+<html>
+<title>blogSearch | Search Results</title>
+<link rel='shortcut icon' href='b.ico'>
+<link rel = 'stylesheet' href = 'style.css'>
+<link href='https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css2?family=Righteous&display=swap' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css2?family=Cuprum&display=swap' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+<img src='blogSearch-logo.png' alt='blogSearch logo' align='middle'>
+<br>
+<pageno>You're on Page {page} of 10</pageno>\n")
+<br>
+<br>
+<searchresult>Your search results for "{input_str}" are:</searchresult>
+<br>
+<br>"""
 
 with open('myOutFile.html', 'w') as f:
-    f.write('')
-    f.write("<html>\n")
-    f.write("<title>blogSearch | Search Results</title>\n")
-    f.write("<link rel='shortcut icon' href='b.ico'>\n")
-    f.write("<link rel = 'stylesheet' href = 'style.css'>\n")
-    f.write("<link href='https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap' rel='stylesheet'>\n")
-    f.write("<link href='https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap' rel='stylesheet'>\n")
-    f.write("<link href='https://fonts.googleapis.com/css2?family=Righteous&display=swap' rel='stylesheet'>\n")
-    f.write("<link href='https://fonts.googleapis.com/css2?family=Cuprum&display=swap' rel='stylesheet'>\n")
-    f.write('<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">\n')
-    f.write("<img src='blogSearch-logo.png' alt='blogSearch logo' align='middle'>\n")
-    f.write("<br>\n")
-    f.write("<pageno>You're on Page " + str(page) + " of 10</pageno>\n")
-    f.write("<br>\n")
-    f.write("<br>\n")
-    f.write("<searchresult>Your search results for '" + searchinput + "' are:</searchresult>\n")
-    f.write("<br>\n")
-    f.write("<br>\n")
+    f.write(text(searchinput))
+    webbrowser.open_new_tab('myOutFile.html')
 
 for result in results:
     omitSocials = ['instagram', 'twitter', 'facebook', 'amazon', 'linkedin', 'youtube', 'vimeo', 'google', 'pinterest']
@@ -73,8 +76,10 @@ for result in results:
             f.write("<br>\n")
             f.write("<description>Description: " + result.get('snippet') + "</description>")
             f.write("</p>\n")
+
             #with open("myOutFile.html", "w") as outF:
                 #outF.write(for_title + result.get('title'))
+                
     else: pass
 
 with open('myOutFile.html', 'a') as f:
@@ -97,34 +102,16 @@ def check_if_digit(input_str):
         global nextPage
         page = int(input_str)
         nextPage = (page - 1) * 10 + 1
-        results = google_search(
-        searchterm, my_api_key, my_cse_id, num = 10, start = nextPage)
+        results = google_search(searchterm, my_api_key, my_cse_id, num = 10, start = nextPage)
         with open('myOutFile.html', 'w') as f:
-            f.write('')
-            f.write("<html>\n")
-            f.write("<title>blogSearch | Search Results</title>\n")
-            f.write("<link rel='shortcut icon' href='b.ico'>\n")
-            f.write("<link rel = 'stylesheet' href = 'style.css'>\n")
-            f.write("<link href='https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap' rel='stylesheet'>\n")
-            f.write("<link href='https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap' rel='stylesheet'>\n")
-            f.write("<link href='https://fonts.googleapis.com/css2?family=Righteous&display=swap' rel='stylesheet'>\n")
-            f.write("<link href='https://fonts.googleapis.com/css2?family=Cuprum&display=swap' rel='stylesheet'>\n")
-            f.write('<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">\n')
-            f.write("<img src='blogSearch-logo.png' alt='blogSearch logo' align='middle'>\n")
-            f.write("<br>\n")
-            f.write("<pageno>You're on Page " + str(page) + " of 10</pageno>\n")
-            f.write("<br>\n")
-            f.write("<br>\n")
-            f.write("<searchresult>Your search results for '" + searchinput + "' are:</searchresult>\n")
-            f.write("<br>\n")
-            f.write("<br>\n")
+            f.write(text(searchinput))
+            webbrowser.open_new_tab('myOutFile.html')
 
         for result in results:
             omitSocials = ['instagram', 'twitter', 'facebook', 'amazon', 'linkedin', 'youtube', 'vimeo', 'google', 'pinterest']
-            blog_str = ['blog']
-        #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
-                       #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
-                       #'https://www.youtu', 'https://play.google', 'https://support.goog']
+            #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
+                        #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
+                        #'https://www.youtu', 'https://play.google', 'https://support.goog']
             urls = str(result.get('link'))
             #snippo = result.get('snippet')
             #For getting only socials: if any(social in urls for social in omitSocials):
@@ -144,8 +131,10 @@ def check_if_digit(input_str):
                     f.write("<br>\n")
                     f.write("<description>Description: " + result.get('snippet') + "</description>" + '\n\n')
                     f.write("</p>\n")
+
                 #with open("myOutFile.html", "w") as outF:
                     #outF.write(for_title + result.get('title'))
+
             else: pass
 
         with open('myOutFile.html', 'a') as f:
@@ -156,32 +145,16 @@ def check_if_digit(input_str):
             input_str = input("Enter a search term: ")
             searchterm = input_str + " blog"
             results = google_search(searchterm, my_api_key, my_cse_id, num=10, start=nextPage)
+
             with open('myOutFile.html', 'w') as f:
-                f.write('')
-                f.write("<html>\n")
-                f.write("<title>blogSearch | Search Results</title>\n")
-                f.write("<link rel='shortcut icon' href='b.ico'>\n")
-                f.write("<link rel = 'stylesheet' href = 'style.css'>\n")
-                f.write("<link href='https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap' rel='stylesheet'>\n")
-                f.write("<link href='https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap' rel='stylesheet'>\n")
-                f.write("<link href='https://fonts.googleapis.com/css2?family=Righteous&display=swap' rel='stylesheet'>\n")
-                f.write("<link href='https://fonts.googleapis.com/css2?family=Cuprum&display=swap' rel='stylesheet'>\n")
-                f.write('<link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">\n')
-                f.write("<img src='blogSearch-logo.png' alt='blogSearch logo' align='middle'>\n")
-                f.write("<br>\n")
-                f.write("<pageno>You're on Page " + str(page) + " of 10</pageno>\n")
-                f.write("<br>\n")
-                f.write("<br>\n")
-                f.write("<searchresult>Your search results for '" + input_str + "' are:</searchresult>\n")
-                f.write("<br>\n")
-                f.write("<br>\n")
+                f.write(text(input_str))
+                webbrowser.open_new_tab('myOutFile.html')
 
             for result in results:
                 omitSocials = ['instagram', 'twitter', 'facebook', 'amazon', 'linkedin', 'youtube', 'vimeo', 'google', 'pinterest']
-                blog_str = ['blog']
-        #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
-                       #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
-                       #'https://www.youtu', 'https://play.google', 'https://support.goog']
+                #omitSocials = ['https://www.instagra', 'https://twitt', 'https://www.faceboo', 'https://www.pinterest', 
+                                #'https://business.faceboo', 'https://www.amazon', 'https://m.faceboo', 'https://vimeo', 
+                                #'https://www.youtu', 'https://play.google', 'https://support.goog']
                 urls = str(result.get('link'))
                 #snippo = result.get('snippet')
                 #For getting only socials: if any(social in urls for social in omitSocials):
@@ -201,6 +174,7 @@ def check_if_digit(input_str):
                         f.write("<br>\n")
                         f.write("<description>Description: " + result.get('snippet') + "</description>" + '\n\n')
                         f.write("</p>\n")
+
                     #with open("myOutFile.html", "w") as outF:
                         #outF.write(for_title + result.get('title'))
             else: pass
@@ -209,11 +183,7 @@ def check_if_digit(input_str):
                 f.write("</body>\n")
                 f.write("</html>\n")
                 
-    else:
-        print("Thank you for using our service!")
-            
+    else: print("Thank you for using our service!")
                 
 input_str = input("Type 's' to search again or 'p' to go to a different page or 'e' to end the session: ")
 check_if_digit(input_str)
-
-webbrowser.open_new_tab('myOutFile.html')
