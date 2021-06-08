@@ -1,15 +1,15 @@
 #from bs4 import BeautifulSoup
 #from bs4.element import Comment
-import urllib.request
+#import urllib.request
+#import pprint
+import webbrowser
+from googleapiclient.discovery import build
 
 #if __name__ == '__main__':
     #url = 'https://www.gatesnotes.com/About-Bill-Gates/Holiday-Books-2020'
     #arr = ExtractText(url)
     #arr = [i.split('\\r')[0] for i in arr] 
     
-from googleapiclient.discovery import build
-import pprint
-
 my_api_key = "AIzaSyA5p_aEGY96GuUq-tfebM0SyBgqeF1HeWQ"
 my_cse_id = "7552ddd9fa05e4120"
 
@@ -24,9 +24,7 @@ nextPage = (page - 1) * 10 + 1
 searchinput = input("Enter your search term: ")
 searchterm = searchinput + " blog"
 
-
-results = google_search(
-    searchterm, my_api_key, my_cse_id, num = 10, start = nextPage)
+results = google_search(searchterm, my_api_key, my_cse_id, num=10, start=nextPage)
 
 
 with open('myOutFile.html', 'w') as f:
@@ -57,10 +55,6 @@ for result in results:
                    #'https://www.youtu', 'https://play.google', 'https://support.goog']
     urls = str(result.get('link'))
     #snippo = result.get('snippet')
-    keyStr = "blog"
-    for_link = "URL: "
-    for_title = "Title: "
-    for_des = "Description: "
     #url = result.get('link')
     #For getting only socials: if any(social in urls for social in omitSocials):
     #if all(social not in urls for social in omitSocials):   
@@ -77,7 +71,7 @@ for result in results:
             f.write("<br>\n")
             f.write("<a href='" + urls + "'>" + urls + "</a><br>" + '\n')
             f.write("<br>\n")
-            f.write("<description>" + for_des + result.get('snippet') + "</description>")
+            f.write("<description>Description: " + result.get('snippet') + "</description>")
             f.write("</p>\n")
             #with open("myOutFile.html", "w") as outF:
                 #outF.write(for_title + result.get('title'))
@@ -133,11 +127,6 @@ def check_if_digit(input_str):
                        #'https://www.youtu', 'https://play.google', 'https://support.goog']
             urls = str(result.get('link'))
             #snippo = result.get('snippet')
-            keyStr = "blog"
-            for_link = "URL: "
-            for_title = "Title: "
-            for_des = "Description: "
-            #url = result.get('link')
             #For getting only socials: if any(social in urls for social in omitSocials):
             #if all(social not in urls for social in omitSocials):   
     
@@ -153,7 +142,7 @@ def check_if_digit(input_str):
                     f.write("<br>\n")
                     f.write("<a href='" + urls + "'>" + urls + "</a><br>" + '\n')
                     f.write("<br>\n")
-                    f.write("<description>" + for_des + result.get('snippet') + "</description>" + '\n\n')
+                    f.write("<description>Description: " + result.get('snippet') + "</description>" + '\n\n')
                     f.write("</p>\n")
                 #with open("myOutFile.html", "w") as outF:
                     #outF.write(for_title + result.get('title'))
@@ -166,8 +155,7 @@ def check_if_digit(input_str):
     elif input_str == 's':
             input_str = input("Enter a search term: ")
             searchterm = input_str + " blog"
-            results = google_search(
-            searchterm, my_api_key, my_cse_id, num = 10, start = nextPage)
+            results = google_search(searchterm, my_api_key, my_cse_id, num=10, start=nextPage)
             with open('myOutFile.html', 'w') as f:
                 f.write('')
                 f.write("<html>\n")
@@ -196,11 +184,6 @@ def check_if_digit(input_str):
                        #'https://www.youtu', 'https://play.google', 'https://support.goog']
                 urls = str(result.get('link'))
                 #snippo = result.get('snippet')
-                keyStr = "blog"
-                for_link = "URL: "
-                for_title = "Title: "
-                for_des = "Description: "
-                #url = result.get('link')
                 #For getting only socials: if any(social in urls for social in omitSocials):
                 #if all(social not in urls for social in omitSocials):   
     
@@ -216,7 +199,7 @@ def check_if_digit(input_str):
                         f.write("<br>\n")
                         f.write("<a href='" + urls + "'>" + urls + "</a><br>" + '\n')
                         f.write("<br>\n")
-                        f.write("<description>" + for_des + result.get('snippet') + "</description>" + '\n\n')
+                        f.write("<description>Description: " + result.get('snippet') + "</description>" + '\n\n')
                         f.write("</p>\n")
                     #with open("myOutFile.html", "w") as outF:
                         #outF.write(for_title + result.get('title'))
@@ -233,6 +216,4 @@ def check_if_digit(input_str):
 input_str = input("Type 's' to search again or 'p' to go to a different page or 'e' to end the session: ")
 check_if_digit(input_str)
 
-import webbrowser 
 webbrowser.open_new_tab('myOutFile.html')
-    
